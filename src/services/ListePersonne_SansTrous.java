@@ -45,10 +45,10 @@ public class ListePersonne_SansTrous {
             if (personnes[i] == p) {
                 personnes[i] = null;
                 for (int j = 0; j < personnes.length; j++) {
-                    if (personnes[i] == null) {
+                    if (personnes[j] == null) {
                         if (i != personnes.length - 1) {
-                            personnes[i] = personnes[i + 1];
-                            personnes[i + 1] = null;
+                            personnes[j] = personnes[j + 1];
+                            personnes[j + 1] = null;
                         }
                     }
                 }
