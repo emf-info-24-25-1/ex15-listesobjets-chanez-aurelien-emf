@@ -28,6 +28,7 @@ public class ListePersonne_SansTrous {
 
     public boolean ajouter(Personne p) {
         boolean condition = false;
+        /*
         for (int i = 0; i < personnes.length; i++) {
             if (personnes[i] == null) {
                 personnes[i] = p;
@@ -35,7 +36,14 @@ public class ListePersonne_SansTrous {
                 condition = true;
                 break;
             }
+        } 
+        */
+        if (nbPersonnes < personnes.length) {
+            personnes[nbPersonnes] = p;
+            nbPersonnes++;
+            condition = true;
         }
+
         return condition;
     }
 
