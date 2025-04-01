@@ -24,6 +24,7 @@ public class ListePersonne_SansTrous {
                 personnes[i] = null;
             }
         }
+        nbPersonnes = 0;
     }
 
     public boolean ajouter(Personne p) {
@@ -52,9 +53,9 @@ public class ListePersonne_SansTrous {
         for (int i = 0; i < personnes.length; i++) {
             if (personnes[i] == p) {
                 personnes[i] = null;
-                for (int j = 0; j < personnes.length; j++) {
+                for (int j = i; j < personnes.length; j++) {
                     if (personnes[j] == null) {
-                        if (i != personnes.length - 1) {
+                        if (j != personnes.length - 1) {
                             personnes[j] = personnes[j + 1];
                             personnes[j + 1] = null;
                         }
@@ -69,7 +70,9 @@ public class ListePersonne_SansTrous {
 
     public void afficher() {
         for (int i = 0; i < personnes.length; i++) {
-            System.out.println(personnes[i] + " | ");
+            if (personnes[i] != null) {
+                System.out.println(personnes[i] + " | ");
+            }
         }
         
 
