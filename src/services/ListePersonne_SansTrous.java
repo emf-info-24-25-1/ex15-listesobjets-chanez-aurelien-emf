@@ -10,27 +10,72 @@ public class ListePersonne_SansTrous {
     private int nbPersonnes;
 
     public ListePersonne_SansTrous() {
-        // A faire !
+        this.personnes = new Personne[NBRE_MAX_PERSONNES];
+        this.nbPersonnes = 0;
     }
 
     public int getNombre() {
-        // A faire !
+        return nbPersonnes;
     }
 
     public void vider() {
-        // A faire !
+        for (int i = 0; i < personnes.length; i++) {
+            if (personnes[i] != null) {
+                personnes[i] = null;
+            }
+        }
+        nbPersonnes = 0;
     }
 
     public boolean ajouter(Personne p) {
-        // A faire !
+        boolean condition = false;
+        /*
+        for (int i = 0; i < personnes.length; i++) {
+            if (personnes[i] == null) {
+                personnes[i] = p;
+                nbPersonnes++;
+                condition = true;
+                break;
+            }
+        } 
+        */
+        if (nbPersonnes < personnes.length) {
+            personnes[nbPersonnes] = p;
+            nbPersonnes++;
+            condition = true;
+        }
+
+        return condition;
     }
 
     public boolean supprimer(Personne p) {
-        // A faire !
+        boolean condition = false;
+        for (int i = 0; i < personnes.length; i++) {
+            if (personnes[i] == p) {
+                personnes[i] = null;
+                for (int j = i; j < personnes.length; j++) {
+                    if (personnes[j] == null) {
+                        if (j != personnes.length - 1) {
+                            personnes[j] = personnes[j + 1];
+                            personnes[j + 1] = null;
+                        }
+                    }
+                }
+                condition = true;
+                break;
+            }
+        }
+        return condition;
     }
 
     public void afficher() {
-        // A faire !
+        for (int i = 0; i < personnes.length; i++) {
+            if (personnes[i] != null) {
+                System.out.println(personnes[i] + " | ");
+            }
+        }
+        
+
     }
 
 }
